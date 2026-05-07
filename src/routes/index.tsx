@@ -51,39 +51,6 @@ function Index() {
         </div>
       </section>
 
-      {/* Offers */}
-      <section className="mx-auto max-w-3xl px-6 py-12">
-        <div className="mb-8 text-center">
-          <h2 className="font-serif text-2xl font-light md:text-3xl">
-            Choose Your Offer
-          </h2>
-          <div className="mx-auto mt-3 h-px w-12 bg-primary" />
-        </div>
-        <div className="grid gap-4 md:grid-cols-2">
-          {[
-            {
-              title: "Digital Gift Cards",
-              desc: "Send the gift of Italian dining instantly. Delivered straight to your inbox.",
-            },
-            {
-              title: "Buy One, Take One",
-              desc: "Enjoy a meal in the restaurant and take a second one home for tomorrow.",
-            },
-          ].map((o) => (
-            <a
-              key={o.title}
-              href={OFFER_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group rounded-2xl border border-border bg-card p-6 transition-all hover:border-primary"
-            >
-              <h3 className="font-serif text-lg">{o.title}</h3>
-              <p className="mt-2 text-sm text-muted-foreground">{o.desc}</p>
-            </a>
-          ))}
-        </div>
-      </section>
-
       {/* How it works */}
       <section className="mx-auto max-w-3xl px-6 py-12">
         <div className="mb-8 text-center">
