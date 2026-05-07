@@ -1,9 +1,4 @@
 import { createFileRoute } from "@tanstack/react-router";
-import heroImg from "@/assets/hero.jpg";
-import breadsticksImg from "@/assets/breadsticks.jpg";
-import pastaImg from "@/assets/pasta.jpg";
-import saladImg from "@/assets/salad.jpg";
-import wineImg from "@/assets/wine.jpg";
 
 export const Route = createFileRoute("/")({
   component: Index,
@@ -39,51 +34,38 @@ function Index() {
     <div className="min-h-screen bg-background text-foreground">
       {/* Hero */}
       <section className="relative overflow-hidden">
-        <div className="absolute inset-0">
-          <img
-            src={heroImg}
-            alt="Olive Garden Italian dining spread"
-            className="h-full w-full object-cover opacity-40"
-            width={1920}
-            height={1080}
-          />
-          <div className="absolute inset-0 bg-gradient-to-b from-background/70 via-background/60 to-background" />
-        </div>
-
-        <div className="relative mx-auto flex max-w-3xl flex-col items-center px-6 py-24 text-center md:py-32">
+        <div className="relative mx-auto flex max-w-3xl flex-col items-center px-6 py-20 text-center">
           <p className="font-serif text-sm uppercase tracking-[0.4em] text-accent">
             Olive Garden
           </p>
-          <h1 className="mt-6 font-serif text-4xl font-light leading-tight md:text-6xl">
+          <h1 className="mt-6 font-serif text-4xl font-light leading-tight md:text-5xl">
             Olive Garden Gift Cards
             <span className="block text-primary">& Special Offers</span>
           </h1>
-          <p className="mt-6 text-sm tracking-widest text-muted-foreground md:text-base">
+          <p className="mt-6 text-xs tracking-widest text-muted-foreground md:text-sm">
             DIGITAL DELIVERY · VALID AT ALL LOCATIONS
           </p>
-          <div className="mt-10">
+          <div className="mt-8">
             <CTAButton>Claim Your Offer Now</CTAButton>
           </div>
         </div>
       </section>
 
       {/* Offers */}
-      <section className="mx-auto max-w-5xl px-6 py-20">
-        <div className="mb-12 text-center">
-          <h2 className="font-serif text-3xl font-light md:text-4xl">
+      <section className="mx-auto max-w-3xl px-6 py-12">
+        <div className="mb-8 text-center">
+          <h2 className="font-serif text-2xl font-light md:text-3xl">
             Choose Your Offer
           </h2>
-          <div className="mx-auto mt-4 h-px w-16 bg-primary" />
+          <div className="mx-auto mt-3 h-px w-12 bg-primary" />
         </div>
-        <div className="grid gap-6 md:grid-cols-2">
+        <div className="grid gap-4 md:grid-cols-2">
           {[
             {
-              img: breadsticksImg,
               title: "Digital Gift Cards",
               desc: "Send the gift of Italian dining instantly. Delivered straight to your inbox.",
             },
             {
-              img: wineImg,
               title: "Buy One, Take One",
               desc: "Enjoy a meal in the restaurant and take a second one home for tomorrow.",
             },
@@ -93,73 +75,43 @@ function Index() {
               href={OFFER_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="group overflow-hidden rounded-2xl border border-border bg-card transition-all hover:border-primary"
+              className="group rounded-2xl border border-border bg-card p-6 transition-all hover:border-primary"
             >
-              <div className="aspect-[16/10] overflow-hidden">
-                <img
-                  src={o.img}
-                  alt={o.title}
-                  loading="lazy"
-                  width={768}
-                  height={480}
-                  className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
-                />
-              </div>
-              <div className="p-6">
-                <h3 className="font-serif text-xl">{o.title}</h3>
-                <p className="mt-2 text-sm text-muted-foreground">{o.desc}</p>
-              </div>
+              <h3 className="font-serif text-lg">{o.title}</h3>
+              <p className="mt-2 text-sm text-muted-foreground">{o.desc}</p>
             </a>
           ))}
         </div>
       </section>
 
       {/* How it works */}
-      <section className="mx-auto max-w-5xl px-6 py-16">
-        <div className="mb-12 text-center">
-          <h2 className="font-serif text-3xl font-light md:text-4xl">How It Works</h2>
-          <div className="mx-auto mt-4 h-px w-16 bg-primary" />
+      <section className="mx-auto max-w-3xl px-6 py-12">
+        <div className="mb-8 text-center">
+          <h2 className="font-serif text-2xl font-light md:text-3xl">How It Works</h2>
+          <div className="mx-auto mt-3 h-px w-12 bg-primary" />
         </div>
-        <div className="grid gap-8 md:grid-cols-3">
+        <div className="grid gap-6 md:grid-cols-3">
           {[
             { n: "01", t: "Choose", d: "Select the offer that suits you best." },
             { n: "02", t: "Claim", d: "Complete a quick, secure form online." },
             { n: "03", t: "Enjoy", d: "Receive your reward and dine in style." },
           ].map((s) => (
             <div key={s.n} className="text-center">
-              <p className="font-serif text-3xl text-primary">{s.n}</p>
-              <h3 className="mt-3 font-serif text-lg">{s.t}</h3>
-              <p className="mt-2 text-sm text-muted-foreground">{s.d}</p>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* Gallery */}
-      <section className="mx-auto max-w-5xl px-6 py-16">
-        <div className="grid grid-cols-2 gap-3 md:grid-cols-4">
-          {[breadsticksImg, pastaImg, saladImg, wineImg].map((src, i) => (
-            <div key={i} className="aspect-square overflow-hidden rounded-xl">
-              <img
-                src={src}
-                alt="Olive Garden dish"
-                loading="lazy"
-                width={400}
-                height={400}
-                className="h-full w-full object-cover transition-transform duration-700 hover:scale-110"
-              />
+              <p className="font-serif text-2xl text-primary">{s.n}</p>
+              <h3 className="mt-2 font-serif text-base">{s.t}</h3>
+              <p className="mt-1 text-sm text-muted-foreground">{s.d}</p>
             </div>
           ))}
         </div>
       </section>
 
       {/* FAQ */}
-      <section className="mx-auto max-w-2xl px-6 py-16">
-        <div className="mb-10 text-center">
-          <h2 className="font-serif text-3xl font-light md:text-4xl">Questions</h2>
-          <div className="mx-auto mt-4 h-px w-16 bg-primary" />
+      <section className="mx-auto max-w-2xl px-6 py-12">
+        <div className="mb-8 text-center">
+          <h2 className="font-serif text-2xl font-light md:text-3xl">Questions</h2>
+          <div className="mx-auto mt-3 h-px w-12 bg-primary" />
         </div>
-        <div className="space-y-4">
+        <div className="space-y-3">
           {[
             {
               q: "How is the gift card delivered?",
@@ -188,14 +140,14 @@ function Index() {
       </section>
 
       {/* Final CTA */}
-      <section className="mx-auto max-w-3xl px-6 py-20 text-center">
-        <h2 className="font-serif text-3xl font-light md:text-4xl">
+      <section className="mx-auto max-w-3xl px-6 py-16 text-center">
+        <h2 className="font-serif text-2xl font-light md:text-3xl">
           Ready to dine on us?
         </h2>
-        <p className="mt-4 text-muted-foreground">
+        <p className="mt-3 text-sm text-muted-foreground">
           Claim your Olive Garden offer in just a moment.
         </p>
-        <div className="mt-8">
+        <div className="mt-6">
           <CTAButton>Claim Your Offer Now</CTAButton>
         </div>
       </section>
